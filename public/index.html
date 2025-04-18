@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmergencyAI - Video Analysis</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>EmergencyAI</h1>
+            <p>Upload a 5-second video of the emergency situation for analysis</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <form id="analysis-form">
+                    <div class="file-input">
+                        <label for="video">Upload Emergency Video:</label>
+                        <input type="file" id="video" name="video" accept="video/*" capture="user" required>
+                        <p class="hint">Max size: 10MB, max duration: 30 seconds</p>
+                    </div>
+
+                    <div class="preview-container">
+                        <video id="preview" controls style="display: none;"></video>
+                    </div>
+
+                    <button type="submit" class="analyze-btn">Analyze Emergency</button>
+                </form>
+            </section>
+
+            <section class="error-section" style="display: none;">
+                <div class="error-message">
+                    <h3>Error</h3>
+                    <p id="error-text"></p>
+                </div>
+            </section>
+
+            <section class="results-section" style="display: none;">
+                <div class="analysis-results">
+                    <h2>Emergency Analysis Results</h2>
+
+                    <div class="assessment">
+                        <h3>Assessment</h3>
+                        <p class="emergency-assessment" id="emergency-assessment"></p>
+                    </div>
+
+                    <div class="transcript" style="display: none;">
+                        <h3>Audio Transcript</h3>
+                        <p id="transcript-text"></p>
+                    </div>
+
+                    <div class="detected-items">
+                        <h3>Detected Elements</h3>
+
+                        <div class="labels" style="display: none;">
+                            <h4>Significant Elements:</h4>
+                            <ul id="labels-list"></ul>
+                        </div>
+
+                        <div class="objects" style="display: none;">
+                            <h4>Objects:</h4>
+                            <ul id="objects-list"></ul>
+                        </div>
+
+                        <div class="persons" style="display: none;">
+                            <h4>People Detected:</h4>
+                            <p id="persons-count"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="loading-indicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing video...</p>
+                <p class="sub-text">This may take up to 30 seconds</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
